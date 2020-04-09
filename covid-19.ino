@@ -46,6 +46,7 @@ void loop() {
       	if(WiFi.RSSI(i)>-55 || WiFi.SSID(i)=="RED")
 	    {
 		      Serial.println("Warning!!!!!! Maintain Distance (and Turn on Buzzer need to be connected )");
+		      delay(3000);
       }
       delay(10);
     }
