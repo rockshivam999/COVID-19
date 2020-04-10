@@ -5,6 +5,9 @@ IPAddress local_IP(192,168,4,22);
 IPAddress gateway(192,168,4,9);
 
 IPAddress subnet(255,255,255,0);
+//Buzzer Setup
+int frequency=1000; //Specified in Hz
+int buzzPin=2; 
 
  
 //=======================================================================
@@ -46,8 +49,11 @@ void loop() {
       	if(WiFi.RSSI(i)>-55 || WiFi.SSID(i)=="RED")
 	    {
 		      Serial.println("Warning!!!!!! Maintain Distance (and Turn on Buzzer need to be connected )");
-		      delay(3000);
-      }
+		      tone(buzzPin, frequency);
+		      delay(5000);
+		      noTone(buzzPin);
+		      n = WiFi.scanNetworks();
+     	    }
       delay(10);
     }
   }
