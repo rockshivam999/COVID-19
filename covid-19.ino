@@ -24,7 +24,7 @@ void setup() {
  
   WiFi.softAPConfig(local_IP, gateway, subnet);
   Serial.println("WiFi Netwoek Scan Started");
-  WiFi.softAP("RED");//or GREEN Flag to identify
+  WiFi.softAP("RED");//or GREEN Flag to identify between affected and non affected
   
 }
  
@@ -49,10 +49,10 @@ void loop() {
       	if(WiFi.RSSI(i)>-55 || WiFi.SSID(i)=="RED")
 	    {
 		      Serial.println("Warning!!!!!! Maintain Distance (and Turn on Buzzer need to be connected )");
-		      tone(buzzPin, frequency);
+		      tone(buzzPin, frequency);//Buzzer on
 		      delay(5000);
-		      noTone(buzzPin);
-		      n = WiFi.scanNetworks();
+		      noTone(buzzPin);//Buzzer off
+		      n = WiFi.scanNetworks();//Rescan after warning
      	    }
       delay(10);
     }
