@@ -54,7 +54,6 @@ void loop() {
 		      noTone(buzzPin);//Buzzer off
 		      n = WiFi.scanNetworks();//Rescan after warning
      	    }
-      delay(10);
     }
   }
   Serial.println("");
